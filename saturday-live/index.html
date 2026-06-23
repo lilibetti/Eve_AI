@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>周六直播 · 看见 → 记住 → 出去</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+  :root {
+    --paper:        #FAF8F5;
+    --ink:          #2C2C2C;
+    --ink-light:    #6B6B6B;
+    --ink-faint:    #B0A89E;
+    --seal:         #C75B39;
+    --seal-dim:     #A84A2E;
+    --rule:         #E8E2DA;
+    --card-bg:      #F4F0EA;
+    --card-border:  #E0D8CC;
+    --tag-bg:       #FDF2ED;
+    --tag-text:     #C75B39;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+    font-size: 18px;
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 100px 56px 140px;
+  }
+
+  @media (max-width: 640px) {
+    .page { padding: 56px 24px 100px; }
+  }
+
+  /* ── Slide divider ── */
+  .slide {
+    margin-bottom: 120px;
+  }
+
+  .slide-break {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 80px 0;
+  }
+
+  /* ── Title slide ── */
+  .title-slide {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .title-meta {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    color: var(--ink-faint);
+    margin-bottom: 24px;
+  }
+
+  .title-main {
+    font-family: 'Noto Serif SC', 'SimSun', 'STSong', serif;
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .title-arrow {
+    color: var(--seal);
+  }
+
+  .title-sub {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--ink-light);
+    margin-top: 28px;
+    max-width: 460px;
+  }
+
+  /* ── Section headings ── */
+  .section-num {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--seal);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 32px;
+  }
+
+  /* ── Body text ── */
+  .body-text {
+    font-size: 18px;
+    line-height: 1.95;
+    color: var(--ink);
+    max-width: 640px;
+  }
+  .body-text p { margin-bottom: 20px; }
+  .body-text p:last-child { margin-bottom: 0; }
+
+  .em {
+    color: var(--seal);
+    font-weight: 500;
+  }
+
+  /* ── Big quote block ── */
+  .big-quote {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--ink);
+    margin: 40px 0;
+    padding-left: 24px;
+    border-left: 3px solid var(--seal);
+  }
+
+  /* ── Card grid ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 32px 0;
+  }
+
+  @media (max-width: 640px) {
+    .card-grid { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 0;
+    padding: 28px 24px;
+  }
+
+  .card-label {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--ink-faint);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .card-name {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .card-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--ink-light);
+  }
+
+  /* ── Step blocks ── */
+  .step-block {
+    margin: 48px 0;
+    padding-left: 32px;
+    border-left: 2px solid var(--rule);
+  }
+
+  .step-num {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--ink-faint);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .step-heading {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+
+  .step-body {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--ink-light);
+    max-width: 580px;
+  }
+
+  .step-body p { margin-bottom: 12px; }
+  .step-body p:last-child { margin-bottom: 0; }
+
+  /* ── Tag / pill ── */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0;
+  }
+
+  .tag {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 12px;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    border-radius: 0;
+    letter-spacing: 0.04em;
+  }
+
+  .tag-cs {
+    background: #EEF2EB;
+    color: #5C7A56;
+  }
+
+  /* ── Demo callout ── */
+  .demo-box {
+    background: var(--card-bg);
+    border: 1px solid var(--seal);
+    border-radius: 0;
+    padding: 28px 32px;
+    margin: 40px 0;
+  }
+
+  .demo-box .demo-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--seal);
+    margin-bottom: 8px;
+  }
+
+  .demo-box .demo-text {
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1.8;
+  }
+
+  /* ── Summary row ── */
+  .summary-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 40px 0;
+  }
+
+  @media (max-width: 640px) {
+    .summary-row { grid-template-columns: 1fr; }
+  }
+
+  .summary-item {
+    text-align: center;
+    padding: 24px 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 0;
+  }
+
+  .summary-item .si-arrow {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 32px;
+    color: var(--seal);
+    margin-bottom: 8px;
+  }
+
+  .summary-item .si-label {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .summary-item .si-desc {
+    font-size: 13px;
+    color: var(--ink-light);
+    margin-top: 8px;
+  }
+
+  /* ── Big closing ── */
+  .closing {
+    margin-top: 80px;
+    text-align: center;
+  }
+
+  .closing-text {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+
+  .closing-sub {
+    font-size: 16px;
+    color: var(--ink-light);
+  }
+
+  /* ── Footer ── */
+  .page-footer {
+    margin-top: 120px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ═══════════════ SLIDE 1: TITLE ═══════════════ -->
+  <div class="title-slide slide">
+    <div class="title-meta">第一周 · 周六直播</div>
+    <h1 class="title-main">
+      看见<span class="title-arrow"> → </span>记住<span class="title-arrow"> → </span>出去
+    </h1>
+    <p class="title-sub">接下来一个月，你就只做这三件事。<br>按顺序做。</p>
+  </div>
+
+  <hr class="slide-break">
+
+  <!-- ═══════════════ SLIDE 2: 你们这一周 ═══════════════ -->
+  <div class="slide">
+    <div class="section-num">回顾</div>
+    <h2 class="section-title">你们这一周做了什么</h2>
+
+    <div class="body-text">
+      <p>周一：你打开了第一个 AI 工具，跟它说了三句话。</p>
+      <p>周二到周五：你描述了一个东西、看 AI 给你什么、把它跑起来、截了第一张屏、发了到群里互看。</p>
+      <p>你手上现在有一个<span class="em">能跑的东西</span>。可能很简陋——一个页面、一个按钮、一段看不懂的代码——但它是真的。</p>
+    </div>
+
+    <div class="big-quote">
+      你已经在「看见」了。<br>今天我们要把这张地图展开，让你知道接下来往哪走。
+    </div>
+  </div>
+
+  <hr class="slide-break">
+
+  <!-- ═══════════════ SLIDE 3: 工具箱 ═══════════════ -->
+  <div class="slide">
+    <div class="section-num">工具箱</div>
+    <h2 class="section-title">你已经认识了三样工具</h2>
+
+    <div class="body-text">
+      <p>这一周你打开工具箱，看到了三样东西：</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-name">前端</div>
+        <div class="card-desc">用户能看到的东西。<br>页面、按钮、输入框、图片。</div>
+      </div>
+      <div class="card">
+        <div class="card-name">后端</div>
+        <div class="card-desc">用户看不见的东西。<br>处理数据、跑逻辑、算结果。</div>
+      </div>
+      <div class="card">
+        <div class="card-name">数据库</div>
+        <div class="card-desc">数据存的地方。<br>关了再打开，东西还在。</div>
+      </div>
+    </div>
+
+    <div class="tags">
+      <span class="tag tag-cs">🏗 CS 硬核</span>
+      <span class="tag">🔬 AI 前沿</span>
+    </div>
+
+    <div class="body-text" style="margin-top: 20px;">
+      <p>这就是计算机的工具箱。<span class="em">接下来一个月你不需要学更多类别</span>——只需要让这三样东西在你脑子里越来越清晰。</p>
+    </div>
+
+    <div class="body-text" style="margin-top: 16px;">
+      <p>而你的 AI 工具箱长这样：</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-name">ChatGPT</div>
+        <div class="card-desc">通用对话。写代码、解释概念、帮你理思路。</div>
+      </div>
+      <div class="card">
+        <div class="card-name">Claude Code</div>
+        <div class="card-desc">终端里的 AI 程序员。能直接改你的项目文件。</div>
+      </div>
+      <div class="card">
+        <div class="card-name">Cursor</div>
+        <div class="card-desc">AI 加持的编辑器。代码补全、对话、一键修改。</div>
+      </div>
+    </div>
+
+    <div class="body-text" style="margin-top: 16px;">
+      <p>不用现在就学会。这是让你看一眼——<span class="em">你知道它们存在就够了</span>。后面几周会一个个打开。</p>
+    </div>
+  </div>
+
+  <hr class="slide-break">
+
+  <!-- ═══════════════ SLIDE 4: 从工具箱到路径 ═══════════════ -->
+  <div class="slide">
+    <div class="section-num">路径</div>
+    <h2 class="section-title">从工具箱到路径</h2>
+
+    <div class="body-text">
+      <p>知道了工具有什么，下一步是什么？</p>
+      <p>很多人告诉你——软件要按<span class="em">前后端</span>分工来做。前端一个人、后端一个人、数据库一个人。三个人同时开工。</p>
+      <p>但你只有一个人。一个人不需要把活分给三个人。<span class="em">一个人需要知道先做哪块、再做哪块、做到哪一步算「这一块可以了，进下一块」。</span></p>
+    </div>
+
+    <div class="big-quote">
+      不要按分工拆。<br>按依赖顺序拆。
+    </div>
+
+    <div class="body-text">
+      <p>分工是空间上的切分——谁做什么。依赖是<span class="em">时间上的切分</span>——先做什么、后做什么。这是两种完全不同的思维方式。</p>
+    </div>
+  </div>
+
+  <hr class="slide-break">
+
+  <!-- ═══════════════ SLIDE 5: 第一块：看见 ═══════════════ -->
+  <div class="slide">
+    <div class="section-num">第一块</div>
+    <h2 class="section-title">让它能看见</h2>
+
+    <div class="step-block">
+      <div class="step-num">01</div>
+      <div class="step-heading">界面出现在屏幕上</div>
+      <div class="step-body">
+        <p>不管你的软件是什么——小程序、网页、App——第一件事是让<span class="em">界面出现在屏幕上</span>。一个输入框、一个按钮、一个能显示数据的地方。</p>
+        <p>不需要好看，不需要完整，但必须能看见。因为你和 AI 的协作需要一个<span class="em">可视化的锚点</span>——你对着空气描述「我想要一个管理系统」，AI 给你代码，你看不懂，也不知道跑起来什么样。但如果它先给你一个在浏览器里能打开的页面——哪怕只有一行标题——你的伪代码就找到了第一个实物。</p>
+        <p>你能说：「好，现在在这个页面里加一个输入框。」</p>
+      </div>
+    </div>
+
+    <div class="tags">
+      <span class="tag tag-cs">🏗 HTML / CSS</span>
+      <span class="tag">🔬 AI 工具 → 代码 → 屏幕</span>
+    </div>
+
+    <!-- Demo callout -->
+    <div class="demo-box">
+      <div class="demo-label">🎬 现场演示</div>
+      <div class="demo-text">
+        打开 ChatGPT。输入：「帮我写一个 HTML 页面，上面有一个标题「我的第一个软件」和一个按钮。」<br>
+        复制代码 → 保存为 .html → 浏览器打开。<br>
+        <span class="em">30 秒。从一句话到一个能看的页面。</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="slide-break">
+
+  <!-- ═══════════════ SLIDE 6: 第二块：记住 ═══════════════ -->
+  <div class="slide">
+    <div class="section-num">第二块</div>
+    <h2 class="section-title">让它能记住</h2>
+
+    <div class="step-block">
+      <div class="step-num">02</div>
+      <div class="step-heading">数据存得住</div>
+      <div class="step-body">
+        <p>你有了界面。用户填了数据，点保存——数据去哪了？刷新页面，数据还在吗？</p>
+        <p>这是<span class="em">状态</span>。软件和一张图片的区别是：软件有记忆。用户做了什么，软件要记住。</p>
+        <p>新手最容易卡死在这一步——因为这一块需要你去碰那些藏在表面下面的东西：数据存在哪、怎么拿回来、为什么刷新就没了。</p>
+      </div>
+    </div>
+
+    <div class="tags">
+      <span class="tag tag-cs">🏗 变量 → 数据结构 → 存本地 → 存云端</span>
+      <span class="tag">🔬 AI 怎么帮你管状态</span>
+    </div>
+
+    <!-- CS fundamentals breakdown -->
+    <div class="body-text" style="margin-top: 32px;">
+      <p>这一块你需要认识三个东西——用生活比喻，不用术语：</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-name">变量</div>
+        <div class="card-desc">一段有名字的内存。<br>像贴了标签的抽屉。<br>「用户名 = 张三」→ 抽屉标签叫「用户名」，里面放的是「张三」。</div>
+      </div>
+      <div class="card">
+        <div class="card-name">数据结构</div>
+        <div class="card-desc">怎么把抽屉组织起来。<br>列表 = 排队的篮子（第1个、第2个…）<br>字典 = 贴标签的抽屉组（「姓名:张三, 年龄:22」）</div>
+      </div>
+      <div class="card">
+        <div class="card-name">数据库</div>
+        <div class="card-desc">在云端不会消失的抽屉柜。<br>关了电脑、关了浏览器——数据还在。<br>数据库说的语言叫 SQL，长这样：<br><code style="font-size: 13px; color: var(--seal);">SELECT * FROM users</code><br>你不用学会写——但你要知道它在说什么。</div>
+      </div>
+    </div>
+
+    <div class="body-text" style="margin-top: 24px;">
+      <p>顺序不能颠倒：先在自己电脑上跑通「存一个东西，关了再打开它还在」→ 再去想「别人也能用」这件事。</p>
+    </div>
+  </div>
+
+  <hr class="slide-break">
+
+  <!-- ═══════════════ SLIDE 7: 第三块：出去 ═══════════════ -->
+  <div class="slide">
+    <div class="section-num">第三块</div>
+    <h2 class="section-title">让它能出去</h2>
+
+    <div class="step-block">
+      <div class="step-num">03</div>
+      <div class="step-heading">别人也能用了</div>
+      <div class="step-body">
+        <p>你的软件在自己电脑上跑得好好的——现在怎么让别人也能用？这就是<span class="em">部署</span>。</p>
+        <p>一个人用 AI 做部署，不需要学微服务和 CI/CD。你只需要知道三件事：</p>
+      </div>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-name">服务器</div>
+        <div class="card-desc">一台永远开着的电脑。<br>你的代码跑在上面，<br>别人随时能访问。</div>
+      </div>
+      <div class="card">
+        <div class="card-name">域名</div>
+        <div class="card-desc">别人找到这台电脑的地址。<br>就像电话号码 vs 通讯录名字——<br>IP 是号码，域名是名字。</div>
+      </div>
+      <div class="card">
+        <div class="card-name">HTTP</div>
+        <div class="card-desc">你跟远方电脑说话的方式。<br>你在浏览器输入一个网址，<br>本质上在说：<br>「请把那个页面给我。」</div>
+      </div>
+    </div>
+
+    <div class="tags" style="margin-top: 24px;">
+      <span class="tag tag-cs">🏗 服务器 / 域名 / HTTP</span>
+      <span class="tag">🔬 GitHub Pages / Vercel 一键部署</span>
+    </div>
+
+    <div class="body-text" style="margin-top: 16px;">
+      <p>AI 能帮你做部署的 95%。剩下 5% 是你必须自己判断的——比如：你的项目是网页还是小程序？你需要的是 GitHub Pages 还是微信开发者工具？<span class="em">AI 不会替你选，但它会帮你做完你选的路。</span></p>
+    </div>
+  </div>
+
+  <hr class="slide-break">
+
+  <!-- ═══════════════ SLIDE 8: 用顺序替代复杂度 ═══════════════ -->
+  <div class="slide">
+    <div class="section-num">核心</div>
+    <h2 class="section-title">用顺序替代复杂度</h2>
+
+    <div class="summary-row">
+      <div class="summary-item">
+        <div class="si-arrow">①</div>
+        <div class="si-label">看见</div>
+        <div class="si-desc">界面出来了吗？</div>
+      </div>
+      <div class="summary-item">
+        <div class="si-arrow">②</div>
+        <div class="si-label">记住</div>
+        <div class="si-desc">数据存住了吗？</div>
+      </div>
+      <div class="summary-item">
+        <div class="si-arrow">③</div>
+        <div class="si-label">出去</div>
+        <div class="si-desc">别人能打开吗？</div>
+      </div>
+    </div>
+
+    <div class="body-text" style="margin-top: 32px;">
+      <p>三块，每一块都能<span class="em">独立验证</span>。不需要等全部做完才知道「对不对」。</p>
+      <p>这就是一个人用 AI 做软件的核心方法——不是把一个复杂问题切成小块，是<span class="em">把三个有先后顺序的问题串起来</span>。走到哪一步，你都知道自己在哪。</p>
+    </div>
+
+    <div class="big-quote">
+      你不需要学完所有东西才能开始。<br>你只需要知道——<br>先在屏幕上看见，再存住，再拿出去。
+    </div>
+  </div>
+
+  <hr class="slide-break">
+
+  <!-- ═══════════════ SLIDE 9: 接下来一个月 ═══════════════ -->
+  <div class="slide">
+    <div class="section-num">下一站</div>
+    <h2 class="section-title">接下来一个月</h2>
+
+    <div class="body-text">
+      <p>你会发现——后面的每一周，都在这三块的框架里。只是每块的内容在变深。</p>
+    </div>
+
+    <div class="card-grid" style="margin-top: 24px;">
+      <div class="card">
+        <div class="card-name">第二周</div>
+        <div class="card-desc">把「看见」做到能交互。<br>你的页面不再只是展示——<br>用户能点、能输入、能得到反馈。</div>
+      </div>
+      <div class="card">
+        <div class="card-name">第三周</div>
+        <div class="card-desc">把「记住」做到真正持久。<br>数据存到云端，多个人能用。<br>你开始碰后端和数据库。</div>
+      </div>
+      <div class="card">
+        <div class="card-name">第四周</div>
+        <div class="card-desc">把「出去」变成现实。<br>部署上线，发链接给朋友。<br>Demo Day——给别人看你的东西。</div>
+      </div>
+    </div>
+
+    <div class="tags" style="margin-top: 24px;">
+      <span class="tag">🔬 四周后你会认识：Agent / RAG / MCP / Vibe Coding / Prompt Engineering</span>
+      <span class="tag tag-cs">🏗 四周后不再吓人：API / 数据库 / 部署 / Git</span>
+    </div>
+  </div>
+
+  <hr class="slide-break">
+
+  <!-- ═══════════════ CLOSING ═══════════════ -->
+  <div class="closing slide">
+    <div class="closing-text">明天——知识树总览。<br>我们把这周零散的东西挂到一棵树上。</div>
+    <div class="closing-sub">今晚回去，把你这一周截的第一张屏再看一眼。</div>
+  </div>
+
+  <footer class="page-footer">
+    <span>妳的AI · 第一周 · 周六直播</span>
+    <span>明天见 →</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
