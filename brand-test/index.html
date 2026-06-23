@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>妳的AI · 第一周 · 星期一</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500&display=swap');
+
+  :root {
+    --paper:        #FAF8F5;
+    --ink:          #2C2C2C;
+    --ink-light:    #6B6B6B;
+    --ink-faint:    #B0A89E;
+    --seal:         #C75B39;
+    --seal-dim:     #A84A2E;
+    --rule:         #E8E2DA;
+    --card-bg:      #F4F0EA;
+    --card-border:  #E0D8CC;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── 页面容器：像一本书的内页 ── */
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 80px 48px 120px;
+  }
+
+  @media (max-width: 640px) {
+    .page {
+      padding: 48px 24px 80px;
+    }
+  }
+
+  /* ── 标题区：王志弘式的极端字号对比 ── */
+  .task-header {
+    margin-bottom: 64px;
+  }
+
+  .week-label {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 16px;
+  }
+
+  .task-title {
+    font-family: 'Noto Serif SC', 'SimSun', 'STSong', serif;
+    font-size: 52px;
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  .task-subtitle {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--ink-light);
+    margin-top: 20px;
+    max-width: 480px;
+  }
+
+  /* ── 分割线 ── */
+  .rule {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 48px 0;
+  }
+
+  /* ── 正文区 ── */
+  .section {
+    margin-bottom: 48px;
+  }
+
+  .section-heading {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--seal);
+    margin-bottom: 16px;
+  }
+
+  .section-body {
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--ink);
+    max-width: 620px;
+  }
+
+  .section-body p {
+    margin-bottom: 16px;
+  }
+  .section-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ── 任务卡片 ── */
+  .task-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 0;
+    padding: 32px 36px;
+    margin-bottom: 16px;
+  }
+
+  .task-card-number {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ink-faint);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .task-card-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+
+  .task-card-body {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--ink-light);
+  }
+
+  /* ── 强调文本 ── */
+  .highlight {
+    color: var(--seal);
+    font-weight: 500;
+  }
+
+  /* ── 小字注释 ── */
+  .footnote {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 13px;
+    color: var(--ink-faint);
+    line-height: 1.7;
+    margin-top: 8px;
+    padding-left: 8px;
+    border-left: 2px solid var(--rule);
+  }
+
+  /* ── 底部导航 ── */
+  .page-footer {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: var(--ink-faint);
+  }
+
+  .nav-link {
+    color: var(--ink-light);
+    text-decoration: none;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+  .nav-link:hover {
+    color: var(--seal);
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ═══ 标题 ═══ -->
+  <header class="task-header">
+    <div class="week-label">第一周 · 星期一</div>
+    <h1 class="task-title">打开工具箱</h1>
+    <p class="task-subtitle">今天不做别的。打开你的第一个 AI 工具，跟它说三句话。</p>
+  </header>
+
+  <hr class="rule">
+
+  <!-- ═══ 今日目标 ═══ -->
+  <div class="section">
+    <div class="section-heading">今日目标</div>
+    <div class="section-body">
+      <p>你在学怎么跟 AI 说话。不是学编程。<span class="highlight">编程是 AI 的事，你的事是告诉它你要什么。</span></p>
+    </div>
+  </div>
+
+  <!-- ═══ 任务 ═══ -->
+  <div class="section">
+    <div class="section-heading">今天做三件事</div>
+
+    <div class="task-card">
+      <div class="task-card-number">01</div>
+      <div class="task-card-title">注册并打开 ChatGPT 或 DeepSeek</div>
+      <div class="task-card-body">
+        如果你还没有账号，现在注册一个。打开对话框。<br>
+        看到那个空白的输入框了吗？那是你今天的起点。
+      </div>
+    </div>
+
+    <div class="task-card">
+      <div class="task-card-number">02</div>
+      <div class="task-card-title">描述一个你想做的东西</div>
+      <div class="task-card-body">
+        用你自己的话说。不需要术语。就当你是在跟一个很会写代码的朋友聊天。<br>
+        例如：「我想做一个网页，用户可以在上面生成自己的 AI 角色卡。」
+      </div>
+    </div>
+
+    <div class="task-card">
+      <div class="task-card-number">03</div>
+      <div class="task-card-title">看 AI 给你什么</div>
+      <div class="task-card-body">
+        不管出来的是什么——代码、问句、建议、一堆你看不懂的东西——把它保留下来。<br>
+        <span class="highlight">不要判断好坏。今天是打开工具箱的一天，不是评判工具的一天。</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- ═══ 今日知识 ── -->
+  <div class="section">
+    <div class="section-heading">今天只需要知道一个词</div>
+    <div class="section-body">
+      <p><strong>Prompt</strong>（提示词）：你对 AI 说的那句话。</p>
+      <p>你不需要关心 AI 内部怎么工作。你只需要知道：<span class="highlight">你说的话决定了 AI 给你什么。</span>好的 prompt 不是术语堆砌——是对你的需求足够清楚。</p>
+    </div>
+    <div class="footnote">
+      今天不往下挖。如果你对「AI 怎么理解我的话」感到好奇——放心，那是周四的事。今天只做一件事：说。
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- ═══ 明日预告 ═══ -->
+  <div class="section">
+    <div class="section-heading">明天</div>
+    <div class="section-body">
+      <p>把你昨天跟 AI 的对话截图发到群里。我们开始互看。</p>
+    </div>
+  </div>
+
+  <!-- ═══ 底部 ═══ -->
+  <footer class="page-footer">
+    <span>妳的AI · 第一周</span>
+    <a href="#" class="nav-link">明天 →</a>
+  </footer>
+
+</div>
+
+</body>
+</html>
