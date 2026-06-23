@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>周六直播 · 看见 → 记住 → 出去</title>
+<title>周六直播 · 第一周</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
 
@@ -13,12 +13,13 @@
     --ink-light:    #6B6B6B;
     --ink-faint:    #B0A89E;
     --seal:         #C75B39;
-    --seal-dim:     #A84A2E;
     --rule:         #E8E2DA;
     --card-bg:      #F4F0EA;
     --card-border:  #E0D8CC;
-    --tag-bg:       #FDF2ED;
-    --tag-text:     #C75B39;
+    --tag-ai-bg:    #FDF2ED;
+    --tag-ai:       #C75B39;
+    --tag-cs-bg:    #EEF2EB;
+    --tag-cs:       #5C7A56;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -27,26 +28,22 @@
     background-color: var(--paper);
     color: var(--ink);
     font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
-    font-size: 18px;
-    line-height: 1.9;
+    font-size: 17px;
+    line-height: 1.95;
     -webkit-font-smoothing: antialiased;
   }
 
   .page {
     max-width: 780px;
     margin: 0 auto;
-    padding: 100px 56px 140px;
+    padding: 100px 56px 160px;
   }
-
   @media (max-width: 640px) {
-    .page { padding: 56px 24px 100px; }
+    .page { padding: 56px 24px 120px; }
   }
 
-  /* ── Slide divider ── */
-  .slide {
-    margin-bottom: 120px;
-  }
-
+  /* ── Slide breaks ── */
+  .slide { margin-bottom: 120px; }
   .slide-break {
     border: none;
     border-top: 1px solid var(--rule);
@@ -55,85 +52,96 @@
 
   /* ── Title slide ── */
   .title-slide {
-    min-height: 60vh;
+    min-height: 55vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
-
   .title-meta {
     font-size: 13px;
-    font-weight: 400;
     letter-spacing: 0.12em;
     color: var(--ink-faint);
     margin-bottom: 24px;
   }
-
   .title-main {
     font-family: 'Noto Serif SC', 'SimSun', 'STSong', serif;
-    font-size: 64px;
+    font-size: 60px;
     font-weight: 900;
     line-height: 1.1;
     letter-spacing: -0.02em;
   }
-
-  .title-arrow {
-    color: var(--seal);
-  }
-
+  .title-arrow { color: var(--seal); }
   .title-sub {
-    font-family: 'Noto Sans SC', sans-serif;
     font-size: 18px;
     font-weight: 300;
     color: var(--ink-light);
     margin-top: 28px;
-    max-width: 460px;
+    max-width: 500px;
   }
 
-  /* ── Section headings ── */
+  /* ── Section heading ── */
   .section-num {
-    font-family: 'Noto Sans SC', sans-serif;
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.1em;
     color: var(--seal);
     margin-bottom: 12px;
   }
-
   .section-title {
     font-family: 'Noto Serif SC', serif;
-    font-size: 40px;
+    font-size: 38px;
     font-weight: 900;
     line-height: 1.2;
-    margin-bottom: 32px;
+    margin-bottom: 36px;
   }
 
   /* ── Body text ── */
   .body-text {
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1.95;
     color: var(--ink);
-    max-width: 640px;
+    max-width: 660px;
   }
-  .body-text p { margin-bottom: 20px; }
+  .body-text p {
+    margin-bottom: 20px;
+  }
   .body-text p:last-child { margin-bottom: 0; }
 
-  .em {
-    color: var(--seal);
-    font-weight: 500;
-  }
+  .em { color: var(--seal); font-weight: 500; }
 
-  /* ── Big quote block ── */
+  /* ── Big quote ── */
   .big-quote {
     font-family: 'Noto Serif SC', serif;
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 700;
-    line-height: 1.4;
+    line-height: 1.45;
     color: var(--ink);
     margin: 40px 0;
     padding-left: 24px;
     border-left: 3px solid var(--seal);
   }
+
+  /* ── Injection tags ── */
+  .injection {
+    margin: 24px 0;
+    padding: 18px 24px;
+    background: var(--card-bg);
+    border-left: 3px solid var(--seal);
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--ink-light);
+  }
+  .injection-cs {
+    border-left-color: #5C7A56;
+  }
+  .inj-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .inj-label-ai { color: var(--seal); }
+  .inj-label-cs { color: #5C7A56; }
 
   /* ── Card grid ── */
   .card-grid {
@@ -142,10 +150,7 @@
     gap: 16px;
     margin: 32px 0;
   }
-
-  @media (max-width: 640px) {
-    .card-grid { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
 
   .card {
     background: var(--card-bg);
@@ -153,16 +158,6 @@
     border-radius: 0;
     padding: 28px 24px;
   }
-
-  .card-label {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--ink-faint);
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-
   .card-name {
     font-family: 'Noto Serif SC', serif;
     font-size: 20px;
@@ -170,20 +165,18 @@
     color: var(--ink);
     margin-bottom: 8px;
   }
-
   .card-desc {
     font-size: 14px;
-    line-height: 1.7;
+    line-height: 1.75;
     color: var(--ink-light);
   }
 
-  /* ── Step blocks ── */
+  /* ── Step block ── */
   .step-block {
     margin: 48px 0;
     padding-left: 32px;
     border-left: 2px solid var(--rule);
   }
-
   .step-num {
     font-family: 'Noto Serif SC', serif;
     font-size: 36px;
@@ -192,49 +185,23 @@
     line-height: 1;
     margin-bottom: 8px;
   }
-
   .step-heading {
     font-family: 'Noto Serif SC', serif;
     font-size: 26px;
     font-weight: 700;
     color: var(--ink);
-    margin-bottom: 12px;
+    margin-bottom: 14px;
   }
-
   .step-body {
     font-size: 16px;
-    line-height: 1.85;
+    line-height: 1.9;
     color: var(--ink-light);
-    max-width: 580px;
+    max-width: 600px;
   }
-
-  .step-body p { margin-bottom: 12px; }
+  .step-body p { margin-bottom: 14px; }
   .step-body p:last-child { margin-bottom: 0; }
 
-  /* ── Tag / pill ── */
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 16px 0;
-  }
-
-  .tag {
-    font-size: 12px;
-    font-weight: 500;
-    padding: 4px 12px;
-    background: var(--tag-bg);
-    color: var(--tag-text);
-    border-radius: 0;
-    letter-spacing: 0.04em;
-  }
-
-  .tag-cs {
-    background: #EEF2EB;
-    color: #5C7A56;
-  }
-
-  /* ── Demo callout ── */
+  /* ── Demo box ── */
   .demo-box {
     background: var(--card-bg);
     border: 1px solid var(--seal);
@@ -242,32 +209,23 @@
     padding: 28px 32px;
     margin: 40px 0;
   }
-
-  .demo-box .demo-label {
+  .demo-label {
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.08em;
     color: var(--seal);
     margin-bottom: 8px;
   }
+  .demo-text { font-size: 16px; color: var(--ink); line-height: 1.8; }
 
-  .demo-box .demo-text {
-    font-size: 16px;
-    color: var(--ink);
-    line-height: 1.8;
-  }
-
-  /* ── Summary row ── */
+  /* ── Three-column summary ── */
   .summary-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
     margin: 40px 0;
   }
-
-  @media (max-width: 640px) {
-    .summary-row { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 640px) { .summary-row { grid-template-columns: 1fr; } }
 
   .summary-item {
     text-align: center;
@@ -276,46 +234,48 @@
     border: 1px solid var(--card-border);
     border-radius: 0;
   }
-
-  .summary-item .si-arrow {
+  .si-arrow {
     font-family: 'Noto Serif SC', serif;
     font-size: 32px;
     color: var(--seal);
     margin-bottom: 8px;
   }
-
-  .summary-item .si-label {
+  .si-label {
     font-family: 'Noto Serif SC', serif;
     font-size: 20px;
     font-weight: 700;
     color: var(--ink);
   }
+  .si-desc { font-size: 13px; color: var(--ink-light); margin-top: 8px; }
 
-  .summary-item .si-desc {
-    font-size: 13px;
-    color: var(--ink-light);
-    margin-top: 8px;
+  /* ── Code block ── */
+  .code-block {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 0;
+    padding: 24px 28px;
+    margin: 20px 0;
+    font-family: 'Courier New', 'Source Code Pro', 'Noto Sans SC', monospace;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--ink);
+    white-space: pre-wrap;
   }
 
-  /* ── Big closing ── */
+  /* ── Closing ── */
   .closing {
     margin-top: 80px;
     text-align: center;
   }
-
   .closing-text {
     font-family: 'Noto Serif SC', serif;
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 700;
     line-height: 1.4;
     color: var(--ink);
     margin-bottom: 16px;
   }
-
-  .closing-sub {
-    font-size: 16px;
-    color: var(--ink-light);
-  }
+  .closing-sub { font-size: 16px; color: var(--ink-light); }
 
   /* ── Footer ── */
   .page-footer {
@@ -333,241 +293,311 @@
 
 <div class="page">
 
-  <!-- ═══════════════ SLIDE 1: TITLE ═══════════════ -->
+  <!-- ════════════════════ TITLE ════════════════════ -->
   <div class="title-slide slide">
     <div class="title-meta">第一周 · 周六直播</div>
-    <h1 class="title-main">
-      看见<span class="title-arrow"> → </span>记住<span class="title-arrow"> → </span>出去
-    </h1>
-    <p class="title-sub">接下来一个月，你就只做这三件事。<br>按顺序做。</p>
+    <h1 class="title-main">看见<span class="title-arrow"> → </span>记住<span class="title-arrow"> → </span>出去</h1>
+    <p class="title-sub">用顺序替代复杂度。<br>你不需要学完所有东西才能开始。</p>
   </div>
 
   <hr class="slide-break">
 
-  <!-- ═══════════════ SLIDE 2: 你们这一周 ═══════════════ -->
+  <!-- ════════════════════ 模块1：语言课 ════════════════════ -->
   <div class="slide">
-    <div class="section-num">回顾</div>
-    <h2 class="section-title">你们这一周做了什么</h2>
+    <div class="section-num">模块 1</div>
+    <h2 class="section-title">这是一门语言课</h2>
 
     <div class="body-text">
-      <p>周一：你打开了第一个 AI 工具，跟它说了三句话。</p>
-      <p>周二到周五：你描述了一个东西、看 AI 给你什么、把它跑起来、截了第一张屏、发了到群里互看。</p>
-      <p>你手上现在有一个<span class="em">能跑的东西</span>。可能很简陋——一个页面、一个按钮、一段看不懂的代码——但它是真的。</p>
+      <p>进入编程，首先应该记住的是，这是一门<span class="em">语言课</span>。只是恰好语言的使用者不是人类，是计算机。</p>
+
+      <p>这是一门语言课，在整个过程中保持记住这一点，这会让你能够绕过障眼法，直取核心。</p>
+
+      <p>所以<span class="em">通感</span>是语感。幸运的是，作为语言，它的历史比其它古老的人类语系要年轻很多。年轻意味着分支会短，语言与语言之间的差异会更小——为什么？很简单，因为是人类造的。语言的成长所基于的是人类的生命和社会的历史，语言是人类为了自组织而发展出的东西。而计算机，这门语言的使用者，也是人类制造的，人类客观的发展速度限制了造物的发展速度。</p>
+
+      <p>所以，建立通感并不是一件不可实现的事情。因为它的成立基础不是鸡血、情绪、勇气甚至承诺，而是<span class="em">客观事实</span>：你用一个月、每天一小时去学习一门语言，建立了语感是自然而然的事情。</p>
+
+      <p>而我们要做的是，把无关项清理掉，保证你的每个小时都在对正确的目标精准地投入注意力——也即，<span class="em">不浪费你作为人类的"token"</span>。</p>
     </div>
 
-    <div class="big-quote">
-      你已经在「看见」了。<br>今天我们要把这张地图展开，让你知道接下来往哪走。
+    <div class="injection">
+      <div class="inj-label inj-label-ai">🔬 前沿AI注入</div>
+      「不浪费你的 token」——这里可以引入 token 的概念。你的注意力就像 AI 的 token 预算——是有限的，是有成本的。你乱扔 prompt，AI 乱翻教材。我们能做的是让每一句对话都打在正确的地方。
     </div>
   </div>
 
   <hr class="slide-break">
 
-  <!-- ═══════════════ SLIDE 3: 工具箱 ═══════════════ -->
+  <!-- ════════════════════ 模块2：教师与教科书 ════════════════════ -->
   <div class="slide">
-    <div class="section-num">工具箱</div>
-    <h2 class="section-title">你已经认识了三样工具</h2>
+    <div class="section-num">模块 2</div>
+    <h2 class="section-title">AI是你的老师，但你得给它教科书</h2>
 
     <div class="body-text">
-      <p>这一周你打开工具箱，看到了三样东西：</p>
+      <p>AI（通用AI，当然了）是<span class="em">教师</span>，但是手里没有固定的教材。或者说同时使用一万本教材，而一万本教材中的每一本，每读取你一句输入——也就是翻到下一页——就会跳到另一本教材。一万本教材的每一本每一页随机组合，你花了几个小时，却一本也没读明白。</p>
+
+      <p>LLM和人类都没做错什么，唯一的错是<span class="em">你不知道它在翻页，它不知道你在想什么</span>。这是障碍，而非错误。</p>
+
+      <p>所以你的任务是找到自己的那本<span class="em">教科书</span>，并且要求教师按照这本教科书循序渐进地教导你。这听起来是一个悖论，是吗？但对一个你要学习的东西进行<span class="em">外部性的把握</span>，和对它进行<span class="em">内部性的理解</span>，是两件不同的事情，而前者并不建立在后者之上。</p>
+
+      <p>那么第一周——整个课程中长达 1/4 的时间——为什么被用来给你们拆解需求？</p>
+
+      <p><span class="em">你需要知道工具箱里有哪些工具，才能拆解自己需要什么。</span></p>
     </div>
 
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-name">前端</div>
-        <div class="card-desc">用户能看到的东西。<br>页面、按钮、输入框、图片。</div>
-      </div>
-      <div class="card">
-        <div class="card-name">后端</div>
-        <div class="card-desc">用户看不见的东西。<br>处理数据、跑逻辑、算结果。</div>
-      </div>
-      <div class="card">
-        <div class="card-name">数据库</div>
-        <div class="card-desc">数据存的地方。<br>关了再打开，东西还在。</div>
-      </div>
-    </div>
-
-    <div class="tags">
-      <span class="tag tag-cs">🏗 CS 硬核</span>
-      <span class="tag">🔬 AI 前沿</span>
-    </div>
-
-    <div class="body-text" style="margin-top: 20px;">
-      <p>这就是计算机的工具箱。<span class="em">接下来一个月你不需要学更多类别</span>——只需要让这三样东西在你脑子里越来越清晰。</p>
-    </div>
-
-    <div class="body-text" style="margin-top: 16px;">
-      <p>而你的 AI 工具箱长这样：</p>
-    </div>
-
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-name">ChatGPT</div>
-        <div class="card-desc">通用对话。写代码、解释概念、帮你理思路。</div>
-      </div>
-      <div class="card">
-        <div class="card-name">Claude Code</div>
-        <div class="card-desc">终端里的 AI 程序员。能直接改你的项目文件。</div>
-      </div>
-      <div class="card">
-        <div class="card-name">Cursor</div>
-        <div class="card-desc">AI 加持的编辑器。代码补全、对话、一键修改。</div>
-      </div>
-    </div>
-
-    <div class="body-text" style="margin-top: 16px;">
-      <p>不用现在就学会。这是让你看一眼——<span class="em">你知道它们存在就够了</span>。后面几周会一个个打开。</p>
+    <div class="injection">
+      <div class="inj-label inj-label-ai">🔬 前沿AI注入</div>
+      这里可以讲 LLM 的注意力机制——不用术语，用比喻：「AI 读你的 prompt 时，它在同时看一万本书，但每本书只有一页被照亮。」也可以提上下文窗口（context window）——AI 能记住的对话长度是有限的，这也是为什么你需要教科书，不能靠无限闲聊。
     </div>
   </div>
 
   <hr class="slide-break">
 
-  <!-- ═══════════════ SLIDE 4: 从工具箱到路径 ═══════════════ -->
+  <!-- ════════════════════ 模块3：工具箱 ════════════════════ -->
   <div class="slide">
-    <div class="section-num">路径</div>
-    <h2 class="section-title">从工具箱到路径</h2>
+    <div class="section-num">模块 3</div>
+    <h2 class="section-title">先认识工具，再拆需求</h2>
 
     <div class="body-text">
-      <p>知道了工具有什么，下一步是什么？</p>
-      <p>很多人告诉你——软件要按<span class="em">前后端</span>分工来做。前端一个人、后端一个人、数据库一个人。三个人同时开工。</p>
-      <p>但你只有一个人。一个人不需要把活分给三个人。<span class="em">一个人需要知道先做哪块、再做哪块、做到哪一步算「这一块可以了，进下一块」。</span></p>
+      <p>你不需要学会怎么造一把扳手，但你需要认识我们可以使用的东西有扳手、锤子、锯子；你需要知道：扳手能拧螺丝、锤子能敲钉子、锯子能截木头。</p>
+
+      <p>知道了这些，你才能把自己的需求——比如「我想做一个能管理用户订单的系统」——拆成：我需要一个界面让用户填信息（<span class="em">前端</span>）、我需要数据存下来不会丢（<span class="em">后端</span>）、我需要在界面和数据之间有个通道（<span class="em">API</span>）。</p>
+
+      <p>这个拆解能力不是零基础就能自动获得的。它需要有人先打开工具箱，把工具一件件拿出来给你看。在计算机中，有前端、后端、数据库——这是前端能做的，这是后端能做的，这是数据库能做的。然后，你才能拿着自己的业务需求，对着 AI 说：「好，我的需求需要这个、这个，还有这个。」</p>
     </div>
 
-    <div class="big-quote">
-      不要按分工拆。<br>按依赖顺序拆。
+    <div class="injection injection-cs">
+      <div class="inj-label inj-label-cs">🏗 CS硬核注入</div>
+      这里放出 CS 知识树 Day1 版——前端、后端、数据库三个分支。「这就是计算机的工具箱，三样东西。接下来一个月你不需要学更多类别——只需要让这三样东西在你脑子里越来越清晰。」
     </div>
 
-    <div class="body-text">
-      <p>分工是空间上的切分——谁做什么。依赖是<span class="em">时间上的切分</span>——先做什么、后做什么。这是两种完全不同的思维方式。</p>
+    <div class="injection">
+      <div class="inj-label inj-label-ai">🔬 前沿AI注入</div>
+      做一个「AI 工具箱快闪」——给他们看 ChatGPT/DeepSeek 对话框、Claude Code 终端界面、Cursor IDE 截图。不是教怎么用，是让他们看见「这些就是你的扳手、锤子、锯子」。消除「我不知道市面上有什么」的焦虑。如果有条件，展示一个真实的对话记录——你自己跟 AI 说「我想做一个能管理用户订单的系统」，AI 返回了什么。
     </div>
   </div>
 
   <hr class="slide-break">
 
-  <!-- ═══════════════ SLIDE 5: 第一块：看见 ═══════════════ -->
+  <!-- ════════════════════ 模块4：记忆与重复 ════════════════════ -->
+  <div class="slide">
+    <div class="section-num">模块 4</div>
+    <h2 class="section-title">那堵绕不开的墙</h2>
+
+    <div class="body-text">
+      <p>语言的学习中不可跳过、占据大量时间成本的一个环节是什么？对，是<span class="em">记忆</span>。</p>
+
+      <p>理解很重要。不幸的是理解更具有吸引力，而记忆则没有。所以很多课程会通过给出理解，模糊或削弱记忆的时间占比。因为付费课程首先是商品、然后是教育，如果过于痛苦，消费者会流失一部分，违背商业利润最大化原则。</p>
+
+      <p>有些课程是<span class="em">故意的</span>：知道记忆重要，但选择了最大化留存率而非最大化学习效果。</p>
+
+      <p>有些课程是<span class="em">不知道的</span>：设计者自己也没意识到语言学习里那堵绕不开的墙是记忆，于是用理解把它盖过去。</p>
+
+      <p>客观结果一样：人们以为自己学会了，离开课程，打开 AI，发现还是一本教材都读不完。</p>
+
+      <p>而实现记忆很重要的一个动作是<span class="em">重复</span>。并非重复循环，而是——举例来说，假设你有 3 块具有先后顺序的内容需要学习，那么，如果你学完第 3 块，感到困惑，一个很好的方法是回去看看第 1 块。看一遍，似懂非懂，去动手、推推你的节点、做点什么，过两天再看一遍，这两天动手做的东西会让你比之前懂一些，<span class="em">知识之间会互相哺育生长</span>。</p>
+    </div>
+
+    <div class="injection">
+      <div class="inj-label inj-label-ai">🔬 前沿AI注入</div>
+      你不需要背代码，AI 会帮你写。你需要记住的是结构——这个需求需要前端+后端+数据库。你跟 AI 说话时需要的不是语法，是结构。
+    </div>
+  </div>
+
+  <hr class="slide-break">
+
+  <!-- ════════════════════ 模块5：三张纸三棵树 ════════════════════ -->
+  <div class="slide">
+    <div class="section-num">模块 5</div>
+    <h2 class="section-title">三张纸，三棵树</h2>
+
+    <div class="body-text">
+      <p>那到底要记忆什么？<span class="em">系统。</span></p>
+
+      <p>
+        1. 一些知识，理解AI是怎么工作的——如果有哪个部分能做到消解你的AI焦虑，或许只会是在这里。因为了解基础后，再看新鲜前沿的东西，会觉得有迹可循，而不是 out of nowhere。<br>
+        2. 一些知识，理解CS是怎么工作的——基础设施。<br>
+        3. 一些指令，你能用什么、怎么用AI——这里的基础是第 1 条。<br>
+        4. 一些指令，你能用什么、怎么用CS——这里的基础是第 2 条。
+      </p>
+
+      <p>仅此而已。简谐的互文结构。</p>
+
+      <p>三张纸，三棵树：一个系统的知识<span class="em">树</span>将会被放在<span class="em">一张纸</span>上生长，每节课都会是在这个树上再长一点，但永远在同一棵树上。这就是系统之所以为系统的系统性。</p>
+
+      <p>AI 一张纸，CS 一张纸。在此基础上，你将要拆出来的东西，你将用接下来一个月构建的东西，也应该是在一张纸上。</p>
+    </div>
+
+    <div class="injection injection-cs">
+      <div class="inj-label inj-label-cs">🏗 CS硬核注入（核心）</div>
+      放出 CS 知识树 Day1 版——前端、后端、数据库、API 四个分支。做一个「CS 的层」快闪——从二进制到 Python 的抽象层级，30 秒。不是讲，是让他们感受：「每一层都有人帮你做了，你站在最上面一层。——Abstraction。」然后引出伪代码和抽象的概念。
+    </div>
+
+    <div class="injection">
+      <div class="inj-label inj-label-ai">🔬 前沿AI注入（核心）</div>
+      放出 AI 知识树 Day1 版——模型、Prompt、上下文、输出控制四个分支。「这棵树今天只有四个分支。但每一周我们会在上面多长一点——比如到第四周你会知道什么是 RAG，什么是 Agent，什么是 fine-tuning。但你不需要今天就焦虑那些。」做一个 30 秒「前沿快闪」——展示四周可能会碰到的新东西：MCP、Agent、Vibe Coding、AI IDE。不是讲——是让他们看见「这些东西都在那棵树上，我们慢慢到」。<br><br>
+      告诉他们在哪可以自己跟踪前沿：Hacker News、Twitter/X 上的 AI 开发者、GitHub Trending。但不要求跟踪——它是背景音，不是考试。
+    </div>
+  </div>
+
+  <hr class="slide-break">
+
+  <!-- ════════════════════ 伪代码与抽象 ════════════════════ -->
+  <div class="slide">
+    <div class="section-num">基石概念</div>
+    <h2 class="section-title">伪代码 & 抽象</h2>
+
+    <div class="body-text">
+      <p>在开始「看见→记住→出去」之前，先种下两个基石概念。它们是接下来所有技术内容的地基。</p>
+    </div>
+
+    <div class="step-block">
+      <div class="step-heading">Pseudocode · 伪代码</div>
+      <div class="step-body">
+        <p>Pseudocode is human-readable instructions that often describe the steps of an algorithm. The ability to create pseudocode is central to one's success in both this class and in computer programming.</p>
+
+        <p>For example, considering the third algorithm above, we could compose pseudocode as follows:</p>
+      </div>
+    </div>
+
+    <div class="code-block">1  Pick up phone book
+2  Open to middle of phone book
+3  Look at page
+4  If person is on page
+5      Call person
+6  Else if person is earlier in book
+7      Open to middle of left half of book
+8      Go back to line 3
+9  Else if person is later in book
+10     Open to middle of right half of book
+11     Go back to line 3
+12 Else
+13     Quit</div>
+
+    <div class="step-body" style="margin-top: 16px;">
+      <p>Pseudocoding is such an important skill for at least two reasons. First, when you pseudocode before you create formal code, it allows you to think through the logic of your problem in advance. Second, when you pseudocode, you can later provide this information to others that are seeking to understand your coding decisions and how your code works.</p>
+
+      <p>Notice that the language within our pseudocode has some unique features. First, some of these lines begin with verbs like <span class="em">pick up</span>, <span class="em">open</span>, <span class="em">look at</span>. Later, we will call these <span class="em">functions</span>. Second, notice that some lines include statements like <span class="em">if</span> or <span class="em">else if</span>. These are called <span class="em">conditionals</span>. Third, notice how there are expressions that can be stated as <span class="em">true or false</span>, such as "person is earlier in the book." We call these <span class="em">boolean expressions</span>. Finally, notice how there are statements like "go back to line 3." We call these <span class="em">loops</span>.</p>
+
+      <p>These building blocks are the fundamentals of programming.</p>
+    </div>
+
+    <div class="step-block" style="margin-top: 48px;">
+      <div class="step-heading">Abstraction · 抽象</div>
+      <div class="step-body">
+        <p>Along with pseudocoding, abstraction is an essential skill and concept within computer programming. Abstraction is the act of simplifying a problem into smaller and smaller problems.</p>
+
+        <p>By learning programming, you will be far more prepared for future learning in other programming languages like Python. Notice how programmers have used abstraction to build off the work of other programmers. Rather than programming in ones and zeroes, programming languages were created to abstract away from the incredibly challenging task of programming in binary to more and more easy-to-use programming languages. <span class="em">We can stand on the shoulders of others.</span></p>
+      </div>
+    </div>
+
+    <div class="injection injection-cs">
+      <div class="inj-label inj-label-cs">🏗 CS硬核注入</div>
+      这里可以做 30 秒「抽象层级」快闪——二进制 → 汇编 → C → Python → AI 对话。让学员看见：「从 0 和 1 到你今天对 AI 说一句话——每一层都有人替你做了。你站在巨人的肩膀上，不是在地上。」这是整个课程中最能消解「我不配」焦虑的时刻之一。
+    </div>
+  </div>
+
+  <hr class="slide-break">
+
+  <!-- ════════════════════ 模块6：看见→记住→出去 ════════════════════ -->
+  <div class="slide">
+    <div class="section-num">模块 6</div>
+    <h2 class="section-title">一个人，用AI，做一个软件</h2>
+
+    <div class="body-text">
+      <p>一个人，用 AI，做一个软件，技术上的活怎么拆？</p>
+
+      <div class="big-quote">不要按前端/后端/部署拆。<br>按<span class="em">依赖顺序</span>拆。</div>
+
+      <p>分工是空间上的切分——谁做什么。依赖是<span class="em">时间上的切分</span>——先做什么、后做什么、做到哪一步算「这一块可以了，进下一块」。一个人不需要把活分给三个人，一个人需要知道先做哪块、再做哪块。</p>
+
+      <p>这就是<span class="em">用顺序替代复杂度。</span></p>
+    </div>
+  </div>
+
+  <hr class="slide-break">
+
+  <!-- ═══ 第一块：看见 ═══ -->
   <div class="slide">
     <div class="section-num">第一块</div>
     <h2 class="section-title">让它能看见</h2>
 
-    <div class="step-block">
-      <div class="step-num">01</div>
-      <div class="step-heading">界面出现在屏幕上</div>
-      <div class="step-body">
-        <p>不管你的软件是什么——小程序、网页、App——第一件事是让<span class="em">界面出现在屏幕上</span>。一个输入框、一个按钮、一个能显示数据的地方。</p>
-        <p>不需要好看，不需要完整，但必须能看见。因为你和 AI 的协作需要一个<span class="em">可视化的锚点</span>——你对着空气描述「我想要一个管理系统」，AI 给你代码，你看不懂，也不知道跑起来什么样。但如果它先给你一个在浏览器里能打开的页面——哪怕只有一行标题——你的伪代码就找到了第一个实物。</p>
-        <p>你能说：「好，现在在这个页面里加一个输入框。」</p>
-      </div>
+    <div class="body-text">
+      <p>不管你的软件是什么——小程序、网页、App——第一件事是让<span class="em">界面出现在屏幕上</span>。一个输入框、一个按钮、一个能显示数据的地方。不需要好看，不需要完整，但必须能看见。</p>
+
+      <p>因为你和 AI 的协作需要一个可视化的锚点——你对着空气描述「我想要一个管理订单的系统」，AI 给你一段代码，你看不懂，你也不知道它跑起来是什么样。但如果它先给你一个在浏览器里能打开的页面——哪怕只有一个标题——你的伪代码就找到了第一个实物。你能说：「好，现在在这个页面里加一个输入框。」</p>
+
+      <p>这一块的技术内容：HTML/CSS（或者小程序的 WXML/WXSS），以及你用的 AI 工具怎么把代码变成你能在屏幕上看到的东西。</p>
     </div>
 
-    <div class="tags">
-      <span class="tag tag-cs">🏗 HTML / CSS</span>
-      <span class="tag">🔬 AI 工具 → 代码 → 屏幕</span>
-    </div>
-
-    <!-- Demo callout -->
-    <div class="demo-box">
-      <div class="demo-label">🎬 现场演示</div>
-      <div class="demo-text">
-        打开 ChatGPT。输入：「帮我写一个 HTML 页面，上面有一个标题「我的第一个软件」和一个按钮。」<br>
-        复制代码 → 保存为 .html → 浏览器打开。<br>
-        <span class="em">30 秒。从一句话到一个能看的页面。</span>
-      </div>
+    <div class="injection">
+      <div class="inj-label inj-label-ai">🔬 前沿AI注入</div>
+      <strong>现场演示（整场直播的第一个「哇」点）：</strong>打开 ChatGPT，输入「帮我写一个 HTML 页面，上面有一个标题「我的第一个软件」和一个按钮」。30 秒——从一句话到一个能看的页面。让他们看见从 prompt 到可视界面的完整路径。
     </div>
   </div>
 
   <hr class="slide-break">
 
-  <!-- ═══════════════ SLIDE 6: 第二块：记住 ═══════════════ -->
+  <!-- ═══ 第二块：记住 ═══ -->
   <div class="slide">
     <div class="section-num">第二块</div>
     <h2 class="section-title">让它能记住</h2>
 
-    <div class="step-block">
-      <div class="step-num">02</div>
-      <div class="step-heading">数据存得住</div>
-      <div class="step-body">
-        <p>你有了界面。用户填了数据，点保存——数据去哪了？刷新页面，数据还在吗？</p>
-        <p>这是<span class="em">状态</span>。软件和一张图片的区别是：软件有记忆。用户做了什么，软件要记住。</p>
-        <p>新手最容易卡死在这一步——因为这一块需要你去碰那些藏在表面下面的东西：数据存在哪、怎么拿回来、为什么刷新就没了。</p>
-      </div>
+    <div class="body-text">
+      <p>你有了界面，用户填了数据，点保存——数据去哪了？刷新页面，数据还在吗？这是<span class="em">状态</span>。</p>
+
+      <p>软件和一张图片的区别是：软件有记忆。用户做了什么，软件要记住。新手最容易卡死在这一步——因为这一块需要你去碰那些 Python 替你藏起来的东西：数据存在哪、怎么拿回来、为什么刷新就没了。</p>
+
+      <p>这一块的技术内容：变量 → 数据结构（列表、字典）→ 存到本地 → 存到云端（数据库）。<span class="em">顺序不能颠倒。</span>先让她在自己的电脑上跑通「存一个东西，关了再打开它还在」，再让她去想「别人也能用」这件事。</p>
     </div>
 
-    <div class="tags">
-      <span class="tag tag-cs">🏗 变量 → 数据结构 → 存本地 → 存云端</span>
-      <span class="tag">🔬 AI 怎么帮你管状态</span>
-    </div>
-
-    <!-- CS fundamentals breakdown -->
-    <div class="body-text" style="margin-top: 32px;">
-      <p>这一块你需要认识三个东西——用生活比喻，不用术语：</p>
-    </div>
-
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-name">变量</div>
-        <div class="card-desc">一段有名字的内存。<br>像贴了标签的抽屉。<br>「用户名 = 张三」→ 抽屉标签叫「用户名」，里面放的是「张三」。</div>
-      </div>
-      <div class="card">
-        <div class="card-name">数据结构</div>
-        <div class="card-desc">怎么把抽屉组织起来。<br>列表 = 排队的篮子（第1个、第2个…）<br>字典 = 贴标签的抽屉组（「姓名:张三, 年龄:22」）</div>
-      </div>
-      <div class="card">
-        <div class="card-name">数据库</div>
-        <div class="card-desc">在云端不会消失的抽屉柜。<br>关了电脑、关了浏览器——数据还在。<br>数据库说的语言叫 SQL，长这样：<br><code style="font-size: 13px; color: var(--seal);">SELECT * FROM users</code><br>你不用学会写——但你要知道它在说什么。</div>
-      </div>
-    </div>
-
-    <div class="body-text" style="margin-top: 24px;">
-      <p>顺序不能颠倒：先在自己电脑上跑通「存一个东西，关了再打开它还在」→ 再去想「别人也能用」这件事。</p>
+    <div class="injection injection-cs">
+      <div class="inj-label inj-label-cs">🏗 CS硬核注入（核心）</div>
+      用生活比喻，不用术语：<br>
+      <strong>变量</strong> = 一段有名字的内存。像贴了标签的抽屉。「用户名 = 张三」→ 抽屉标签叫「用户名」，里面放的是「张三」。<br>
+      <strong>数据结构</strong> = 怎么把抽屉组织起来。列表 = 排队的篮子（第1个、第2个…）；字典 = 贴标签的抽屉组（「姓名:张三, 年龄:22」）。<br>
+      <strong>数据库</strong> = 在云端不会消失的抽屉柜。关了电脑数据还在。数据库说的语言叫 SQL，长这样：<code>SELECT * FROM users</code>——你不需要学会写，但你要知道它在说什么。
     </div>
   </div>
 
   <hr class="slide-break">
 
-  <!-- ═══════════════ SLIDE 7: 第三块：出去 ═══════════════ -->
+  <!-- ═══ 第三块：出去 ═══ -->
   <div class="slide">
     <div class="section-num">第三块</div>
     <h2 class="section-title">让它能出去</h2>
 
-    <div class="step-block">
-      <div class="step-num">03</div>
-      <div class="step-heading">别人也能用了</div>
-      <div class="step-body">
-        <p>你的软件在自己电脑上跑得好好的——现在怎么让别人也能用？这就是<span class="em">部署</span>。</p>
-        <p>一个人用 AI 做部署，不需要学微服务和 CI/CD。你只需要知道三件事：</p>
-      </div>
+    <div class="body-text">
+      <p>你的软件在自己电脑上跑得好好的——现在怎么让别人也能用？这就是<span class="em">部署</span>。</p>
+
+      <p>但一个人用 AI 做部署，不需要学微服务和 CI/CD。她只需要做一件事：把代码放到一个能让别人访问的地方。对网页来说，可能是 GitHub Pages 或者 Vercel。对小程序来说，可能是微信开发者工具上传。</p>
+
+      <p>这一块的技术内容：什么是服务器（一台永远开着的电脑）、什么是域名（别人找到这台电脑的地址）、以及 AI 能帮你做的 95% 的部署步骤中，哪 5% 你必须自己判断。</p>
     </div>
 
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-name">服务器</div>
-        <div class="card-desc">一台永远开着的电脑。<br>你的代码跑在上面，<br>别人随时能访问。</div>
-      </div>
-      <div class="card">
-        <div class="card-name">域名</div>
-        <div class="card-desc">别人找到这台电脑的地址。<br>就像电话号码 vs 通讯录名字——<br>IP 是号码，域名是名字。</div>
-      </div>
-      <div class="card">
-        <div class="card-name">HTTP</div>
-        <div class="card-desc">你跟远方电脑说话的方式。<br>你在浏览器输入一个网址，<br>本质上在说：<br>「请把那个页面给我。」</div>
-      </div>
+    <div class="injection injection-cs">
+      <div class="inj-label inj-label-cs">🏗 CS硬核注入</div>
+      三个比喻，30 秒搞定：<br>
+      <strong>服务器</strong> = 一台永远不关机的电脑。你的代码跑在上面，别人随时能访问。<br>
+      <strong>域名</strong> = 电话号码 vs 通讯录名字。IP 是号码，域名是名字。<br>
+      <strong>HTTP</strong> = 你在浏览器输入一个网址，本质上在对一台远方的电脑说：「请把那个页面给我。」
     </div>
 
-    <div class="tags" style="margin-top: 24px;">
-      <span class="tag tag-cs">🏗 服务器 / 域名 / HTTP</span>
-      <span class="tag">🔬 GitHub Pages / Vercel 一键部署</span>
-    </div>
-
-    <div class="body-text" style="margin-top: 16px;">
-      <p>AI 能帮你做部署的 95%。剩下 5% 是你必须自己判断的——比如：你的项目是网页还是小程序？你需要的是 GitHub Pages 还是微信开发者工具？<span class="em">AI 不会替你选，但它会帮你做完你选的路。</span></p>
+    <div class="injection">
+      <div class="inj-label inj-label-ai">🔬 前沿AI注入</div>
+      展示 GitHub Pages 部署——告诉他们「你不需要学 DevOps。你只需要把这个文件夹拖到这里。剩下的 AI 教你。」可以提到 Vercel、Netlify 这些一键部署平台——现代部署已经不是 2015 年的难度了。AI 能帮你做部署的 95%，剩下 5% 是你必须自己判断的：你的项目是网页还是小程序？你需要 GitHub Pages 还是微信开发者工具？AI 不会替你选，但它会帮你做完你选的路。
     </div>
   </div>
 
   <hr class="slide-break">
 
-  <!-- ═══════════════ SLIDE 8: 用顺序替代复杂度 ═══════════════ -->
+  <!-- ════════════════════ 收束：接下来一个月 ════════════════════ -->
   <div class="slide">
-    <div class="section-num">核心</div>
-    <h2 class="section-title">用顺序替代复杂度</h2>
+    <div class="section-num">收束</div>
+    <h2 class="section-title">接下来一个月你会怎么过</h2>
+
+    <div class="body-text">
+      <p>三块，按依赖顺序走——<span class="em">看见 → 记住 → 出去</span>。每一块都能独立验证：</p>
+    </div>
 
     <div class="summary-row">
       <div class="summary-item">
@@ -588,50 +618,40 @@
     </div>
 
     <div class="body-text" style="margin-top: 32px;">
-      <p>三块，每一块都能<span class="em">独立验证</span>。不需要等全部做完才知道「对不对」。</p>
-      <p>这就是一个人用 AI 做软件的核心方法——不是把一个复杂问题切成小块，是<span class="em">把三个有先后顺序的问题串起来</span>。走到哪一步，你都知道自己在哪。</p>
-    </div>
+      <p>不需要等全部做完才知道「对不对」。走到哪一步，你都知道自己在哪。</p>
 
-    <div class="big-quote">
-      你不需要学完所有东西才能开始。<br>你只需要知道——<br>先在屏幕上看见，再存住，再拿出去。
-    </div>
-  </div>
-
-  <hr class="slide-break">
-
-  <!-- ═══════════════ SLIDE 9: 接下来一个月 ═══════════════ -->
-  <div class="slide">
-    <div class="section-num">下一站</div>
-    <h2 class="section-title">接下来一个月</h2>
-
-    <div class="body-text">
       <p>你会发现——后面的每一周，都在这三块的框架里。只是每块的内容在变深。</p>
     </div>
 
     <div class="card-grid" style="margin-top: 24px;">
       <div class="card">
         <div class="card-name">第二周</div>
-        <div class="card-desc">把「看见」做到能交互。<br>你的页面不再只是展示——<br>用户能点、能输入、能得到反馈。</div>
+        <div class="card-desc">把「看见」做到能交互。页面不再只是展示——用户能点、能输入、能得到反馈。</div>
       </div>
       <div class="card">
         <div class="card-name">第三周</div>
-        <div class="card-desc">把「记住」做到真正持久。<br>数据存到云端，多个人能用。<br>你开始碰后端和数据库。</div>
+        <div class="card-desc">把「记住」做到真正持久。数据存到云端，多个人能用。你开始碰后端和数据库。</div>
       </div>
       <div class="card">
         <div class="card-name">第四周</div>
-        <div class="card-desc">把「出去」变成现实。<br>部署上线，发链接给朋友。<br>Demo Day——给别人看你的东西。</div>
+        <div class="card-desc">把「出去」变成现实。部署上线，发链接给朋友。Demo Day——给别人看你的东西。</div>
       </div>
     </div>
 
-    <div class="tags" style="margin-top: 24px;">
-      <span class="tag">🔬 四周后你会认识：Agent / RAG / MCP / Vibe Coding / Prompt Engineering</span>
-      <span class="tag tag-cs">🏗 四周后不再吓人：API / 数据库 / 部署 / Git</span>
+    <div class="injection" style="margin-top: 32px;">
+      <div class="inj-label inj-label-ai">🔬 四周后你会认识这些词</div>
+      Agent / RAG / MCP / Vibe Coding / Prompt Engineering / Fine-tuning
+    </div>
+
+    <div class="injection injection-cs" style="margin-top: 16px;">
+      <div class="inj-label inj-label-cs">🏗 四周后这些不再吓人</div>
+      API / 数据库 / 部署 / Git / 服务器 / HTTP
     </div>
   </div>
 
   <hr class="slide-break">
 
-  <!-- ═══════════════ CLOSING ═══════════════ -->
+  <!-- ════════════════════ CLOSING ════════════════════ -->
   <div class="closing slide">
     <div class="closing-text">明天——知识树总览。<br>我们把这周零散的东西挂到一棵树上。</div>
     <div class="closing-sub">今晚回去，把你这一周截的第一张屏再看一眼。</div>
