@@ -296,8 +296,8 @@
   <!-- ════════════════════ TITLE ════════════════════ -->
   <div class="title-slide slide">
     <div class="title-meta">第一周 · 周六直播</div>
-    <h1 class="title-main">看见<span class="title-arrow"> → </span>记住<span class="title-arrow"> → </span>出去</h1>
-    <p class="title-sub">用顺序替代复杂度。<br>你不需要学完所有东西才能开始。</p>
+    <h1 class="title-main">绕过障眼法</h1>
+    <p class="title-sub">这不是鸡血，不是勇气，不是承诺。<br>编程是一门外语——而外语是能学会的。</p>
   </div>
 
   <hr class="slide-break">
@@ -308,7 +308,7 @@
     <h2 class="section-title">这是一门语言课</h2>
 
     <div class="body-text">
-      <p>进入编程，首先应该记住的是，这是一门<span class="em">语言课</span>。只是恰好语言的使用者不是人类，是计算机。</p>
+      <p>进入编程，首先应该记住的是，这是一门<span class="em">语言课</span>。只是恰好语言的使用者不是人类，是计算机。在整个过程中保持记住这一点，这会让你能够<span class="em">绕过障眼法，直取核心</span>。</p>
 
       <p>这是一门语言课，在整个过程中保持记住这一点，这会让你能够绕过障眼法，直取核心。</p>
 
@@ -320,8 +320,8 @@
     </div>
 
     <div class="injection">
-      <div class="inj-label inj-label-ai">🔬 前沿AI注入</div>
-      「不浪费你的 token」——这里可以引入 token 的概念。你的注意力就像 AI 的 token 预算——是有限的，是有成本的。你乱扔 prompt，AI 乱翻教材。我们能做的是让每一句对话都打在正确的地方。
+      <div class="inj-label inj-label-ai">🔬 Token = 你的注意力预算</div>
+      你注意过没有？你跟 AI 说了一大段话，聊到后面它好像忘了开头。这不是它笨——Token 是 AI 的「工作记忆单位」。一段中文大约每 1.5 个字算 1 个 token，而 AI 一次只能记住几千到几十万个 token。就像你不可能同时记住今天所有的对话——你的注意力也是有限的，是「token 预算」。我们能做的，就是让每一句都打在正确的地方。不浪费你的 token，也不浪费 AI 的。
     </div>
   </div>
 
@@ -345,8 +345,12 @@
     </div>
 
     <div class="injection">
-      <div class="inj-label inj-label-ai">🔬 前沿AI注入</div>
-      这里可以讲 LLM 的注意力机制——不用术语，用比喻：「AI 读你的 prompt 时，它在同时看一万本书，但每本书只有一页被照亮。」也可以提上下文窗口（context window）——AI 能记住的对话长度是有限的，这也是为什么你需要教科书，不能靠无限闲聊。
+      <div class="inj-label inj-label-ai">🔬 注意力机制（不用术语版）</div>
+      想象 AI 在读你的 prompt 时，它面前摊开了一万本书。但只有一页被灯光照亮——就是它「注意」到的那一页。你说的话决定了灯光照在哪。你说得越准，光照得越对。你说得越散，光在一万页之间跳来跳去。这就是为什么你需要一本教科书——不是漫无目的地跟 AI 聊天，而是告诉它：「从这一页开始读，按这个顺序往后翻。」
+    </div>
+    <div class="injection" style="margin-top: 0;">
+      <div class="inj-label inj-label-ai">🔬 上下文窗口</div>
+      AI 还有一个东西叫「上下文窗口」——你可以理解为它一次能记住的对话长度。目前不同 AI 的窗口大小不一样：ChatGPT 免费版大约 8000 token（约 6000 个中文字），Claude 可以到 20 万 token（约 15 万字，一本书的长度）。这意味着：你不能靠无限闲聊让 AI 替代教科书。你必须自己形成对系统的记忆——因为 AI 的记忆窗口会满，但你的不会。
     </div>
   </div>
 
@@ -366,13 +370,20 @@
     </div>
 
     <div class="injection injection-cs">
-      <div class="inj-label inj-label-cs">🏗 CS硬核注入</div>
-      这里放出 CS 知识树 Day1 版——前端、后端、数据库三个分支。「这就是计算机的工具箱，三样东西。接下来一个月你不需要学更多类别——只需要让这三样东西在你脑子里越来越清晰。」
+      <div class="inj-label inj-label-cs">🏗 CS 知识树 · Day 1</div>
+      这就是计算机的工具箱，三样东西：<br>
+      <strong>前端</strong> = 用户能看到的东西。页面、按钮、输入框、图片。<br>
+      <strong>后端</strong> = 用户看不见的东西。处理数据、跑逻辑、算结果。<br>
+      <strong>数据库</strong> = 数据存的地方。关了再打开，东西还在。<br>
+      接下来一个月，你不需要学更多类别。只需要让这三样东西在你脑子里越来越清晰。
     </div>
 
     <div class="injection">
-      <div class="inj-label inj-label-ai">🔬 前沿AI注入</div>
-      做一个「AI 工具箱快闪」——给他们看 ChatGPT/DeepSeek 对话框、Claude Code 终端界面、Cursor IDE 截图。不是教怎么用，是让他们看见「这些就是你的扳手、锤子、锯子」。消除「我不知道市面上有什么」的焦虑。如果有条件，展示一个真实的对话记录——你自己跟 AI 说「我想做一个能管理用户订单的系统」，AI 返回了什么。
+      <div class="inj-label inj-label-ai">🔬 AI 工具箱快闪</div>
+      这三个是你接下来会用的 AI 工具，今天先看一眼：<br><br>
+      <strong>ChatGPT / DeepSeek（对话框型）</strong> — 你跟它说话，它回复你。最通用——写代码、解释概念、帮你理思路。免费。<br><br>
+      <strong>Claude Code（终端型）</strong> — 它住在你的命令行里。你告诉它「帮我把这个 bug 修了」，它直接读你的项目、改你的文件、跑测试、给你结果。像一个坐在你旁边的程序员。<br><br>
+      <strong>Cursor（编辑器型）</strong> — 一个 AI 加持的编辑器，基于 VS Code。你能用自然语言对它说「把整个登录页面改成暗色模式」——它跨多个文件改。实时补全、纠错。
     </div>
   </div>
 
@@ -398,8 +409,8 @@
     </div>
 
     <div class="injection">
-      <div class="inj-label inj-label-ai">🔬 前沿AI注入</div>
-      你不需要背代码，AI 会帮你写。你需要记住的是结构——这个需求需要前端+后端+数据库。你跟 AI 说话时需要的不是语法，是结构。
+      <div class="inj-label inj-label-ai">🔬 你不需要背代码</div>
+      你不需要背代码，AI 会帮你写。你需要记住的是<strong>结构</strong>——这个需求需要前端、后端、数据库各做什么。你跟 AI 说话时需要的不是语法，是结构。就像你不会背整本字典再开口说英文——你记住的是句型。
     </div>
   </div>
 
@@ -428,14 +439,27 @@
     </div>
 
     <div class="injection injection-cs">
-      <div class="inj-label inj-label-cs">🏗 CS硬核注入（核心）</div>
-      放出 CS 知识树 Day1 版——前端、后端、数据库、API 四个分支。做一个「CS 的层」快闪——从二进制到 Python 的抽象层级，30 秒。不是讲，是让他们感受：「每一层都有人帮你做了，你站在最上面一层。——Abstraction。」然后引出伪代码和抽象的概念。
+      <div class="inj-label inj-label-cs">🏗 CS 知识树 · Day 1 + 抽象层级快闪</div>
+      这就是 CS 知识树今天的样子。四个分支：前端、后端、数据库、API。<br><br>
+      但这些东西底下是什么？从你打出一行 <code>print("hello")</code> 到计算机实际执行，中间发生了什么？30 秒快闪：<br><br>
+      <strong>二进制（最底层）</strong> → 计算机只认识 0 和 1。人类几乎无法直接读写。<br>
+      <strong>汇编语言</strong> → 在二进制上面包了一层。用短代码代表硬件指令。还是很难，但比 0 和 1 好一点。<br>
+      <strong>C 语言</strong> → 再往上包一层。可以用接近英语的方式操作内存和硬件。<br>
+      <strong>Python</strong> → 再往上包一层。它把复杂的事自动处理了。你写的代码像英语短句。<br>
+      <strong>你跟 AI 说话</strong> → 最上面一层。你不需要写 Python——你描述你要什么，AI 帮你生成 Python。<br><br>
+      每一层都有人替你做了。你站在巨人的肩膀上，不是蹲在地上从 0 和 1 开始拼。
     </div>
 
     <div class="injection">
-      <div class="inj-label inj-label-ai">🔬 前沿AI注入（核心）</div>
-      放出 AI 知识树 Day1 版——模型、Prompt、上下文、输出控制四个分支。「这棵树今天只有四个分支。但每一周我们会在上面多长一点——比如到第四周你会知道什么是 RAG，什么是 Agent，什么是 fine-tuning。但你不需要今天就焦虑那些。」做一个 30 秒「前沿快闪」——展示四周可能会碰到的新东西：MCP、Agent、Vibe Coding、AI IDE。不是讲——是让他们看见「这些东西都在那棵树上，我们慢慢到」。<br><br>
-      告诉他们在哪可以自己跟踪前沿：Hacker News、Twitter/X 上的 AI 开发者、GitHub Trending。但不要求跟踪——它是背景音，不是考试。
+      <div class="inj-label inj-label-ai">🔬 AI 知识树 · Day 1 + 前沿快闪</div>
+      这是 AI 知识树今天的样子。四个分支：模型、Prompt、上下文、输出控制。<br><br>
+      这棵树今天只有四个分支，但每一周我们会在上面多长一点。来看一个 30 秒快闪——四周后你会发现这些词不再陌生：<br><br>
+      <strong>Agent（智能体）</strong> — 不是只会聊天的 AI，是能自己做事的 AI。你告诉它「帮我整理这周所有邮件并回复」，它自己规划步骤、调用工具、完成。Chatbot 是你问一句它答一句；Agent 是你给了目标它自己跑。<br><br>
+      <strong>RAG（检索增强生成）</strong> — 给 AI 一个「开卷考试」的能力。它不只靠自己的记忆回答——它先去翻你指定的文档，找到相关内容，再回答你。<br><br>
+      <strong>MCP（模型上下文协议）</strong> — 把 MCP 想象成「AI 界的 USB-C 接口」。以前要让 AI 连接不同的工具（比如日历、数据库、文件），每个都要单独写代码。MCP 是一个通用标准——插上就能用。就像 USB-C 让你不用为每个设备买不同的线。Anthropic 在 2024 年底提出，现在已经是行业标准。<br><br>
+      <strong>Vibe Coding（氛围编程）</strong> — 你不是在写代码，你是在描述你想要什么。你关注的是产品的感觉和结果，AI 负责把代码写出来。你像导演，AI 像演员。<br><br>
+      <strong>Prompt Engineering（提示词工程）</strong> — 怎么跟 AI 说话能让它给对答案。你已经在这周做过了——只是你还不知道它叫这个名字。<br><br>
+      如果你想自己跟踪前沿，这些地方每天更新：Hacker News、Twitter/X 上的 AI 开发者、GitHub Trending。但我们不要求你跟踪——它是背景音，不是考试。
     </div>
   </div>
 
@@ -453,30 +477,32 @@
     <div class="step-block">
       <div class="step-heading">Pseudocode · 伪代码</div>
       <div class="step-body">
-        <p>Pseudocode is human-readable instructions that often describe the steps of an algorithm. The ability to create pseudocode is central to one's success in both this class and in computer programming.</p>
-
-        <p>For example, considering the third algorithm above, we could compose pseudocode as follows:</p>
+        <p>Pseudocode is human-readable instructions that often describe the steps of an algorithm. <span class="em">伪代码是人类可读的指令，用来描述算法的步骤。</span></p>
+        <p>The ability to create pseudocode is central to one's success in both this class and in computer programming. <span class="em">创造伪代码的能力，是这节课乃至整个编程学习的核心技能。</span></p>
       </div>
     </div>
 
-    <div class="code-block">1  Pick up phone book
-2  Open to middle of phone book
-3  Look at page
-4  If person is on page
-5      Call person
-6  Else if person is earlier in book
-7      Open to middle of left half of book
-8      Go back to line 3
-9  Else if person is later in book
-10     Open to middle of right half of book
-11     Go back to line 3
-12 Else
-13     Quit</div>
+    <div class="code-block">1  Pick up phone book     ← 拿起电话簿
+2  Open to middle of phone book     ← 翻到电话簿中间
+3  Look at page     ← 看这一页
+4  If person is on page     ← 如果这页有你要找的人
+5      Call person     ← 打电话给他
+6  Else if person is earlier in book     ← 如果这页太靠后了
+7      Open to middle of left half of book     ← 往左半边翻
+8      Go back to line 3     ← 回到第 3 步
+9  Else if person is later in book     ← 如果这页太靠前了
+10     Open to middle of right half of book     ← 往右半边翻
+11     Go back to line 3     ← 回到第 3 步
+12 Else     ← 如果都不对
+13     Quit     ← 放弃（人不在电话簿里）</div>
 
     <div class="step-body" style="margin-top: 16px;">
       <p>Pseudocoding is such an important skill for at least two reasons. First, when you pseudocode before you create formal code, it allows you to think through the logic of your problem in advance. Second, when you pseudocode, you can later provide this information to others that are seeking to understand your coding decisions and how your code works.</p>
+      <p><span class="em">伪代码重要的原因至少有两个。第一，在你写正式代码之前先写伪代码，能让你事先把逻辑想清楚。第二，写好伪代码之后，你可以把它交给别人，让他们理解你的思路。</span></p>
 
       <p>Notice that the language within our pseudocode has some unique features. First, some of these lines begin with verbs like <span class="em">pick up</span>, <span class="em">open</span>, <span class="em">look at</span>. Later, we will call these <span class="em">functions</span>. Second, notice that some lines include statements like <span class="em">if</span> or <span class="em">else if</span>. These are called <span class="em">conditionals</span>. Third, notice how there are expressions that can be stated as <span class="em">true or false</span>, such as "person is earlier in the book." We call these <span class="em">boolean expressions</span>. Finally, notice how there are statements like "go back to line 3." We call these <span class="em">loops</span>.</p>
+
+      <p><span class="em">注意伪代码里的语言有几个特征。第一，有些行以动词开头——pick up、open、look at——这些后来叫「函数」。第二，有些行包含 if 或 else if——这些叫「条件判断」。第三，有些表达可以判断为真或假——比如「这页太靠后了」——这些叫「布尔表达式」。第四，「回到第 3 步」——这个叫「循环」。这四种东西，就是编程的基石。</span></p>
 
       <p>These building blocks are the fundamentals of programming.</p>
     </div>
@@ -484,15 +510,12 @@
     <div class="step-block" style="margin-top: 48px;">
       <div class="step-heading">Abstraction · 抽象</div>
       <div class="step-body">
-        <p>Along with pseudocoding, abstraction is an essential skill and concept within computer programming. Abstraction is the act of simplifying a problem into smaller and smaller problems.</p>
+        <p>Along with pseudocoding, abstraction is an essential skill and concept within computer programming. Abstraction is the act of simplifying a problem into smaller and smaller problems. <span class="em">和伪代码一样，抽象（abstraction）是编程中必不可少的概念。抽象就是把一个复杂问题简化成越来越小的问题。</span></p>
 
-        <p>By learning programming, you will be far more prepared for future learning in other programming languages like Python. Notice how programmers have used abstraction to build off the work of other programmers. Rather than programming in ones and zeroes, programming languages were created to abstract away from the incredibly challenging task of programming in binary to more and more easy-to-use programming languages. <span class="em">We can stand on the shoulders of others.</span></p>
+        <p>Notice how programmers have used abstraction to build off the work of other programmers. Rather than programming in ones and zeroes, programming languages were created to abstract away from the incredibly challenging task of programming in binary to more and more easy-to-use programming languages. <span class="em">注意看——程序员是如何通过抽象站在前人肩膀上的。我们不需要用 0 和 1 编程——每一代编程语言都在把更底层的东西「抽象掉」，让编程变得越来越像说话。</span></p>
+
+        <p><span class="em">We can stand on the shoulders of others.</span></p>
       </div>
-    </div>
-
-    <div class="injection injection-cs">
-      <div class="inj-label inj-label-cs">🏗 CS硬核注入</div>
-      这里可以做 30 秒「抽象层级」快闪——二进制 → 汇编 → C → Python → AI 对话。让学员看见：「从 0 和 1 到你今天对 AI 说一句话——每一层都有人替你做了。你站在巨人的肩膀上，不是在地上。」这是整个课程中最能消解「我不配」焦虑的时刻之一。
     </div>
   </div>
 
@@ -530,8 +553,11 @@
     </div>
 
     <div class="injection">
-      <div class="inj-label inj-label-ai">🔬 前沿AI注入</div>
-      <strong>现场演示（整场直播的第一个「哇」点）：</strong>打开 ChatGPT，输入「帮我写一个 HTML 页面，上面有一个标题「我的第一个软件」和一个按钮」。30 秒——从一句话到一个能看的页面。让他们看见从 prompt 到可视界面的完整路径。
+      <div class="inj-label inj-label-ai">🎬 现场演示</div>
+      现在停下来，打开 ChatGPT（chatgpt.com），输入：<br><br>
+      <code>帮我写一个 HTML 页面，上面有一个标题「我的第一个软件」和一个蓝色的按钮，上面写着「点我」。</code><br><br>
+      复制它返回的代码 → 新建一个文本文件 → 粘贴 → 保存为 <code>test.html</code> → 双击打开。<br><br>
+      <strong>30 秒。你刚刚做了一个软件。它就在你屏幕上。不好看——但它是真的。这就是「看见」。</strong>
     </div>
   </div>
 
@@ -551,11 +577,12 @@
     </div>
 
     <div class="injection injection-cs">
-      <div class="inj-label inj-label-cs">🏗 CS硬核注入（核心）</div>
-      用生活比喻，不用术语：<br>
-      <strong>变量</strong> = 一段有名字的内存。像贴了标签的抽屉。「用户名 = 张三」→ 抽屉标签叫「用户名」，里面放的是「张三」。<br>
-      <strong>数据结构</strong> = 怎么把抽屉组织起来。列表 = 排队的篮子（第1个、第2个…）；字典 = 贴标签的抽屉组（「姓名:张三, 年龄:22」）。<br>
-      <strong>数据库</strong> = 在云端不会消失的抽屉柜。关了电脑数据还在。数据库说的语言叫 SQL，长这样：<code>SELECT * FROM users</code>——你不需要学会写，但你要知道它在说什么。
+      <div class="inj-label inj-label-cs">🏗 你需要认识的三个东西（用生活比喻，不用术语）</div>
+      <strong>变量 = 贴标签的抽屉。</strong>「用户名 = 张三」——你有一个抽屉，标签叫「用户名」，里面放的是「张三」。每次你需要知道用户名时，就去开这个抽屉。变量就是一段有名字的内存——名字是你起的，内容是你要存的。<br><br>
+      <strong>数据结构 = 怎么把抽屉组织起来。</strong>列表像一排编了号的篮子：第 1 个篮子、第 2 个篮子……你按号码取东西。字典像贴了不同标签的抽屉组：「姓名」「年龄」「城市」——你按标签取东西，不用记号码。<br><br>
+      <strong>数据库 = 在云端不会消失的抽屉柜。</strong>变量和列表在你关掉程序后就没了。数据库不同——你把东西存进去，关了电脑、关了浏览器、重启了服务器——它还在。数据库说的语言叫 SQL，长这样：<br><br>
+      <code>SELECT * FROM users</code><br><br>
+      意思是：「把 users 这个表里所有的数据都取出来给我。」你不需要现在学会写。但你今天知道了：数据库说的话，看起来像英语。
     </div>
   </div>
 
@@ -575,16 +602,17 @@
     </div>
 
     <div class="injection injection-cs">
-      <div class="inj-label inj-label-cs">🏗 CS硬核注入</div>
-      三个比喻，30 秒搞定：<br>
-      <strong>服务器</strong> = 一台永远不关机的电脑。你的代码跑在上面，别人随时能访问。<br>
-      <strong>域名</strong> = 电话号码 vs 通讯录名字。IP 是号码，域名是名字。<br>
-      <strong>HTTP</strong> = 你在浏览器输入一个网址，本质上在对一台远方的电脑说：「请把那个页面给我。」
+      <div class="inj-label inj-label-cs">🏗 三个比喻，30 秒搞定</div>
+      <strong>服务器 = 一台永远不关机的电脑。</strong>你的代码跑在自己的笔记本上——你合上电脑，别人就打不开了。服务器就是一台永远开着、连着网的电脑。你把代码放上去，别人随时能访问。<br><br>
+      <strong>域名 = 电话号码 vs 通讯录名字。</strong>每台服务器有一个 IP 地址——像电话号码，比如 <code>142.250.80.46</code>。域名就是给这个号码存了个名字——像你把「妈妈」存进通讯录，就不用每次拨 11 位号码。<code>google.com</code> 就是 Google 服务器的通讯录名字。<br><br>
+      <strong>HTTP = 你跟远方电脑说话的方式。</strong>你在浏览器输入 <code>google.com</code> 然后回车，本质上是你的电脑在对一台远方的电脑说：「你好，请把 Google 的首页给我。」远方电脑回：「好的，给你。」这就是 HTTP——地球上最常用的「请给我这个页面」协议。你每天都在用，只是不知道它叫这个名字。
     </div>
 
     <div class="injection">
-      <div class="inj-label inj-label-ai">🔬 前沿AI注入</div>
-      展示 GitHub Pages 部署——告诉他们「你不需要学 DevOps。你只需要把这个文件夹拖到这里。剩下的 AI 教你。」可以提到 Vercel、Netlify 这些一键部署平台——现代部署已经不是 2015 年的难度了。AI 能帮你做部署的 95%，剩下 5% 是你必须自己判断的：你的项目是网页还是小程序？你需要 GitHub Pages 还是微信开发者工具？AI 不会替你选，但它会帮你做完你选的路。
+      <div class="inj-label inj-label-ai">🔬 现代部署已经不是 2015 年的难度了</div>
+      <strong>GitHub Pages</strong> — 你把代码推到 GitHub，点几下设置，网页自动上线。免费。适合静态网页（不涉及后端数据库的页面）。<br>
+      <strong>Vercel</strong> — 比 GitHub Pages 更强一点。也免费。能跑一些轻量后端逻辑。很多独立开发者用它上线自己的产品。<br><br>
+      AI 能帮你做部署的 95%。剩下 5% 是你必须自己判断的——你的项目是网页还是小程序？你需要 GitHub Pages 还是微信开发者工具？AI 不会替你选，但它会帮你做完你选的路。
     </div>
   </div>
 
@@ -623,29 +651,18 @@
       <p>你会发现——后面的每一周，都在这三块的框架里。只是每块的内容在变深。</p>
     </div>
 
-    <div class="card-grid" style="margin-top: 24px;">
-      <div class="card">
-        <div class="card-name">第二周</div>
-        <div class="card-desc">把「看见」做到能交互。页面不再只是展示——用户能点、能输入、能得到反馈。</div>
-      </div>
-      <div class="card">
-        <div class="card-name">第三周</div>
-        <div class="card-desc">把「记住」做到真正持久。数据存到云端，多个人能用。你开始碰后端和数据库。</div>
-      </div>
-      <div class="card">
-        <div class="card-name">第四周</div>
-        <div class="card-desc">把「出去」变成现实。部署上线，发链接给朋友。Demo Day——给别人看你的东西。</div>
-      </div>
-    </div>
-
     <div class="injection" style="margin-top: 32px;">
-      <div class="inj-label inj-label-ai">🔬 四周后你会认识这些词</div>
-      Agent / RAG / MCP / Vibe Coding / Prompt Engineering / Fine-tuning
+      <div class="inj-label inj-label-ai">🔬 四周后，这些词你会认识</div>
+      Agent（智能体）/ RAG（检索增强生成）/ MCP（模型上下文协议）/ Vibe Coding（氛围编程）/ Prompt Engineering（提示词工程）/ Fine-tuning（微调）
     </div>
 
     <div class="injection injection-cs" style="margin-top: 16px;">
-      <div class="inj-label inj-label-cs">🏗 四周后这些不再吓人</div>
+      <div class="inj-label inj-label-cs">🏗 四周后，这些词不再吓人</div>
       API / 数据库 / 部署 / Git / 服务器 / HTTP
+    </div>
+
+    <div class="body-text" style="margin-top: 24px;">
+      <p>你不必今天理解所有。你只需要知道——它们都在那三棵树上，我们一个 branch 一个 branch 走过来。</p>
     </div>
   </div>
 
